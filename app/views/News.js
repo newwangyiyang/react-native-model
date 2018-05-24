@@ -9,14 +9,18 @@ class News extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            params: {}
+            params: {
+                newsId: ''
+            }
         };
     }
     componentWillMount() {
-        let {navigation} = this.props;
-        console.log(navigation.getParam('newsId'));
+        const {navigation} = this.props;
+        const newsId = navigation.getParam('newsId');
         this.setState({
-            params: navigation.getParam('newsId')
+            params: {
+                newsId
+            }
         });
     }
     render() {
@@ -24,7 +28,7 @@ class News extends Component{
             <View style={[pStyles.flexC, styles.wrap]}>
                 <Text style={pStyles.textShow}>News</Text>
                 <Button title="go home" onPress={() => this.props.navigation.popToTop()} />
-                <Text style={[pStyles.textShow, {marginTop: 30}]}>{this.state.params}</Text>
+                <Text style={[pStyles.textShow, {marginTop: 30}]}>{this.state.params.newsId}</Text>
             </View>
         )
     }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native';
 
 import pStyle from '../assets/styles/publicStyles';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 class Home extends Component{
     static navigationOptions = {
         headerStyle: {height: 30},
@@ -17,8 +17,11 @@ class Home extends Component{
             <View style={[pStyle.flexC, pStyle.comBg]}>
                 <Text style={pStyle.textShow}>Home</Text>
                 <Button 
-                title="goNews" 
-                onPress={() => this.props.navigation.navigate('News', {newsId: '世界，你好'})} />
+                title="goNews"
+                onPress={() => this.props.navigation.navigate('News', {newsId: 'test'})}
+                />
+
+                <Ionicons name="md-notifications" size={200} color="teal" />
             </View>
         )
     }
