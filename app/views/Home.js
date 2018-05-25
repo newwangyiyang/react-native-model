@@ -21,7 +21,7 @@ class Home extends Component{
                 onPress={() => this.props.navigation.navigate('News', {newsId: 'test'})}
                 />
 
-                <Ionicons name="md-notifications" size={200} color="teal" />
+                <Ionicons name="logo-angular" size={200} color="teal" />
             </View>
         )
     }

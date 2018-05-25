@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from 'react-navigation';
 
 import Home from './app/views/Home'
 import News from './app/views/News'
-
+import ForYou from './app/views/ForYou'
 export default class App extends Component{
   render() {
     return (
@@ -16,29 +16,33 @@ export default class App extends Component{
 }
 
 const stackRoute = {
-  Home,
-  News
+  I: Home,
+  LOVE: News,
+  YOU: ForYou
 };
 
 const stackConfig = {
-  initialRouteName: 'Home',
+  initialRouteName: 'I',
   navigationOptions: ({navigation}) => (
     {
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === 'Home') {
+        if (routeName === 'I') {
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'News') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
+        } else if (routeName === 'LOVE') {
+          iconName = `ios-heart${focused ? '' : '-outline'}`;
+        } else if (routeName === 'YOU') {
+          iconName = `ios-female${focused ? '' : '-outline'}`;
         }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
         return <Ionicons name={iconName} size={30} color={tintColor} />;
       }
     }
-  )
+  ),
+  tabBarOptions: {
+    activeTintColor: 'skyblue',
+    inactiveTintColor: 'gray',
+  },
 };
 
 const Navigator = createBottomTabNavigator(stackRoute, stackConfig);
